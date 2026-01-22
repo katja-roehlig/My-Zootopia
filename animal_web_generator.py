@@ -14,15 +14,17 @@ def get_animal_data():
         diet = animal.get("characteristics", {}).get("diet", 0)
         type = animal.get("characteristics", {}).get("type", 0)
         location_list = animal.get("locations", 0)
-        output += '<li class="cards__item">'
+        output += "<li class='cards__item'>"
         if name:
-            output += f"Name: {name}<br/>"
+            output += f"<div class='card__title'> Name: {name}</div>"
+        output += "<p class='card__text'>"
         if diet:
-            output += f"Diet: {diet}<br/>"
+            output += f"<strong>Diet:</strong> {diet}<br/>"
         if location_list:
-            output += f"Location: {location_list[0]}<br/>"
+            output += f"<strong>Location:</strong> {location_list[0]}<br/>"
         if type:
-            output += f"Type: {type}<br/>"
+            output += f"<strong>Type:</strong> {type}<br/>"
+        output += "</p>"
         output += "</li>"
     return output
 
