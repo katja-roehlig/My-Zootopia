@@ -39,7 +39,6 @@ def get_html_string_for_one_animal(animal):
         "distinctive_feature",
         animal.get("characteristics", {}).get("most_distinctive_feature"),
     )
-    print(distinctive_feature)
     color = animal.get("characteristics", {}).get("color")
     skin_type = animal.get("characteristics", {}).get("skin_type")
     lifespan = animal.get("characteristics", {}).get("lifespan")
@@ -48,22 +47,26 @@ def get_html_string_for_one_animal(animal):
     output += "<li class='cards__item'>"
     if name:
         output += f"<div class='card__title'> Name: {name}</div>"
-    output += "<p class='card__text'>"
+    output += "<div class='card__text'>"
+    output += "<ul class='card__list'>"
     if diet:
-        output += f"<strong>Diet:</strong> {diet}<br/>"
+        output += f"<li><strong>Diet:</strong> {diet}</li>"
     if location_list:
-        output += f"<strong>Location:</strong> {location_list[0]}<br/>"
+        output += f"<li><strong>Location:</strong> {location_list[0]}</li>"
     if type:
-        output += f"<strong>Type:</strong> {type}<br/>"
+        output += f"<li><strong>Type:</strong> {type}</li>"
     if distinctive_feature:
-        output += f"<strong>Distinctive feature:</strong> {distinctive_feature}<br/>"
+        output += (
+            f"<li><strong>Distinctive feature:</strong> {distinctive_feature}</li>"
+        )
     if color:
-        output += f"<strong>Color:</strong> {color}<br/>"
+        output += f"<li><strong>Color:</strong> {color}</li>"
     if skin_type:
-        output += f"<strong>Skin type:</strong> {skin_type}<br/>"
+        output += f"<li><strong>Skin type:</strong> {skin_type}</li>"
     if lifespan:
-        output += f"<strong>Lifespan:</strong> {lifespan}<br/>"
-    output += "</p>"
+        output += f"<li><strong>Lifespan:</strong> {lifespan}</li>"
+    output += "</ul>"
+    output += "</div>"
     output += "</li>"
     return output
 
